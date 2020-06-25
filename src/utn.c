@@ -36,7 +36,6 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
                 retorno=0;
                 break;
             }
-            printf("%s, Reintentos: [%d] \n",msgError,reintentos);
             (reintentos)--;
         }
         while((*reintentos)>=0);
