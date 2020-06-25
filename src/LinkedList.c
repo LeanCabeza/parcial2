@@ -551,5 +551,30 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
     return returnAux;
 }
 
+/** \brief Determina si este elemento integra o no la lista devuelviendo verdadero o falso.
+    y lo cuenta si cumple con la funcion criterio.
+ * \param pList LinkedList* Puntero a la lista.
+ * \param pFunc (*pFunc) Puntero a la funcion criterio.
+ * \return int Retorna (-1) Error: si alguno de los punteros a las listas o el puntero a funcion son NULL
+                       (int) cuantos elementos de this contenidos en la lista segun la funcion criterio pasada como parametro de la funcion.
 
+ */
+int ll_count(LinkedList* this, int (*pFunc)(void* pElement))
+{
+    int contador = 0;
+    int i;
+    void* pElement;
+    if(this != NULL && pFunc != NULL)
+    {
+        for(i=0;i<ll_len(this);i++)
+        {
+            pElement = ll_get(this, i);
+            if(pFunc(pElement) == 1)
+            {
+                contador++;
+            }
+        }
+    }
+    return contador;
+}
 

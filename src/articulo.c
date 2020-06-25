@@ -270,3 +270,33 @@ int articulo_compararPorNombre(void* this1, void* this2)
     return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -164,3 +164,65 @@ int controller_saveMappeado(LinkedList* pArrayList)
     return ret;
 }
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+int articulos_rubro1 (void* this)
+{
+    int ret = 0;
+    int auxRubro;
+
+    if(this!= NULL)
+    {
+        articulo_getRubroId((eArticulo*)this, &auxRubro);
+
+        if(auxRubro ==1 )
+        {
+            ret=1;
+        }
+    }
+    return ret;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+int articulos_Mayores100 (void* this)
+{
+    int ret = 0;
+    int auxPrecio;
+
+    if(this!= NULL)
+    {
+        articulo_getPrecio((eArticulo*)this,&auxPrecio);
+        if(auxPrecio > 100)
+        {
+            ret=1;
+        }
+    }
+    return ret;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+int controller_informes( LinkedList* pArrayList)
+{
+    int ret = -1;
+    int cantidadVentasMayores100;
+    int cantidadRubro1 ;
+
+    if(pArrayList != NULL)
+    {
+
+            cantidadVentasMayores100 = ll_count(pArrayList,articulos_Mayores100);
+            cantidadRubro1 = ll_count(pArrayList,articulos_rubro1);
+
+            printf("\n----INFORMES-----\n");
+            printf("\nCantidad de Articulos con el precio mayor a $ 100 : %d\n",cantidadVentasMayores100);
+            printf("\nCantidad de articulos del rubro 1 : %d\n",cantidadRubro1);
+
+            ret= 0 ;
+        }
+    return ret;
+}

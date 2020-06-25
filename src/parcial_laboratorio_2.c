@@ -35,9 +35,10 @@ int main(void) {
 	        	   "\n3- Listar "
 	        	   "\n4- Mappeado con descuento"
 	        	   "\n5- Generar el archivo de salida: mapeado.csv"
-	        	   "\n6-SALIR\n");
+	        	   "\n6- Informes"
+	        	   "\n7-SALIR\n");
 
-	        if(!getInt(&opcion,"\nIngrese la Operacion que desea Realizar: ", "\nError opcion invalida , debe ser un numero entre 1 y 6. Reintente ", 0,6,5))
+	        if(!getInt(&opcion,"\nIngrese la Operacion que desea Realizar: ", "\nError opcion invalida , debe ser un numero entre 1 y 7. Reintente ", 0,7,5))
 	        {
 				switch (opcion)
 				{
@@ -78,8 +79,11 @@ int main(void) {
 							{printf("\nSe mappeo con exito");}
 					break;
 				case 6:
+					controller_informes(listaArticulos);
+					break;
+				case 7:
 					printf("Hasta Pronto :D");
-					seguir='n';
+					seguir = 'n';
 					break;
 				}
 	        }
